@@ -10,7 +10,7 @@ public sealed class Specialization
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public int Id { get; set; }
+    public required int Id { get; set; }
 
     /// <summary>
     /// Название специальности

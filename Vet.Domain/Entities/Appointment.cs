@@ -8,7 +8,7 @@ public sealed class Appointment
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public int Id { get; set; }
+    public required int Id { get; set; }
 
     /// <summary>
     /// Животное, записанное на приём

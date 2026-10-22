@@ -8,7 +8,7 @@ public sealed class Veterinarian
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public int Id { get; set; }
+    public required int Id { get; set; }
 
     /// <summary>
     /// Номер паспорта
