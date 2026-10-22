@@ -1,5 +1,4 @@
 using Vet.Domain.Enums;
-using Xunit;
 
 namespace Vet.Tests;
 
@@ -41,6 +40,9 @@ public class VetClinicTest(VetClinicTestFixture fixture) : IClassFixture<VetClin
     {
         var targetVetId = 0;
 
+        var firstExpectedName = "Барсик";
+        var secondExpectedName = "Рекс";
+
         var resultPets = _appointments
             .Where(a => a.Veterinarian.Id == targetVetId)
             .Select(a => a.Pet)
@@ -49,8 +51,8 @@ public class VetClinicTest(VetClinicTestFixture fixture) : IClassFixture<VetClin
             .ToList();
 
         Assert.Equal(2, resultPets.Count);
-        Assert.Equal("Барсик", resultPets[0].Name);
-        Assert.Equal("Рекс", resultPets[1].Name);
+        Assert.Equal(firstExpectedName, resultPets[0].Name);
+        Assert.Equal(secondExpectedName, resultPets[1].Name);
     }
 
     /// <summary>
@@ -62,14 +64,17 @@ public class VetClinicTest(VetClinicTestFixture fixture) : IClassFixture<VetClin
         var labradorBreedId = 0;
         var corellaBreedId = 5;
 
+        var expectedLabradorCount = 3;
+        var expectedCorellaRepeatCount = 0;
+
         var labradorRepeatCount = _appointments
             .Count(a => a.IsRepeat && a.Pet.Breed.Id == labradorBreedId);
 
         var corellaRepeatCount = _appointments
             .Count(a => a.IsRepeat && a.Pet.Breed.Id == corellaBreedId);
 
-        Assert.Equal(3, labradorRepeatCount);
-        Assert.Equal(0, corellaRepeatCount);
+        Assert.Equal(expectedLabradorCount, labradorRepeatCount);
+        Assert.Equal(expectedCorellaRepeatCount, corellaRepeatCount);
     }
 
     /// <summary>
