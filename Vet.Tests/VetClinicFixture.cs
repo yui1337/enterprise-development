@@ -8,6 +8,7 @@ namespace Vet.Tests;
 /// </summary>
 public class VetClinicTestFixture
 {
+    public static readonly DateTime ReferenceDate = new(2026, 10, 15, 12, 0, 0);
     public readonly List<Breed> Breeds;
     public readonly List<Specialization> Specializations;
     public readonly List<Veterinarian> Veterinarians;
@@ -412,7 +413,7 @@ public class VetClinicTestFixture
     private static List<Appointment> GetAppointments(List<Pet> pets, List<Veterinarian> vets)
     {
         var now = DateTime.Now;
-        var thisMonth = new DateTime(now.Year, now.Month, 15, 12, 0, 0);
+        var thisMonth = ReferenceDate;
         var lastMonth = thisMonth.AddMonths(-1);
         var nextMonth = thisMonth.AddMonths(1);
 

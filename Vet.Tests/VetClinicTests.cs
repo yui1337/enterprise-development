@@ -8,6 +8,7 @@ namespace Vet.Tests;
 /// <param name="fixture">Тестовый набор данных</param>
 public class VetClinicTest(VetClinicTestFixture fixture) : IClassFixture<VetClinicTestFixture>
 {
+    private readonly DateTime _referenceDate = VetClinicTestFixture.ReferenceDate;
     private readonly List<Domain.Entities.Veterinarian> _veterinarians = fixture.Veterinarians;
     private readonly List<Domain.Entities.Owner> _owners = fixture.Owners;
     private readonly List<Domain.Entities.Appointment> _appointments = fixture.Appointments;
@@ -109,7 +110,7 @@ public class VetClinicTest(VetClinicTestFixture fixture) : IClassFixture<VetClin
         var targetRoom = 101;
         var expectedCount = 8;
         var expectedFirstAppointmentId = 0;
-        var now = DateTime.Now;
+        var now = _referenceDate;
 
         var resultAppointments = _appointments
             .Where(a => a.RoomNumber == targetRoom
