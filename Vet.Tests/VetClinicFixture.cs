@@ -43,20 +43,20 @@ public class VetClinicTestFixture
     /// </summary>
     private static List<Breed> GetBreeds() =>
     [
-        new Breed { 
-            Id = 0,  
+        new Breed {
+            Id = 0,
             Name = "Лабрадор",
-            Species = Species.Dog     
-        },
-        new Breed { 
-            Id = 1,  
-            Name = "Немецкая овчарка",           
             Species = Species.Dog
         },
-        new Breed { 
-            Id = 2,  
-            Name = "Британская короткошёрстная", 
-            Species = Species.Cat     
+        new Breed {
+            Id = 1,
+            Name = "Немецкая овчарка",
+            Species = Species.Dog
+        },
+        new Breed {
+            Id = 2,
+            Name = "Британская короткошёрстная",
+            Species = Species.Cat
         },
         new Breed {
             Id = 3,
@@ -66,42 +66,42 @@ public class VetClinicTestFixture
         new Breed {
             Id = 4,
             Name = "Волнистый попугай",
-            Species = Species.Bird   
-        },
-        new Breed {
-            Id = 5,
-            Name = "Корелла", 
             Species = Species.Bird
         },
         new Breed {
-            Id = 6,  
-            Name = "Сирийский хомяк",    
-            Species = Species.Hamster 
+            Id = 5,
+            Name = "Корелла",
+            Species = Species.Bird
         },
         new Breed {
-            Id = 7, 
-            Name = "Джунгарский хомяк", 
-            Species = Species.Hamster 
+            Id = 6,
+            Name = "Сирийский хомяк",
+            Species = Species.Hamster
+        },
+        new Breed {
+            Id = 7,
+            Name = "Джунгарский хомяк",
+            Species = Species.Hamster
         },
         new Breed {
             Id = 8,
-            Name = "Белая мышь",      
+            Name = "Белая мышь",
             Species = Species.Mouse
         },
         new Breed {
-            Id = 9, 
-            Name = "Кролик баран",  
-            Species = Species.Rabbit 
+            Id = 9,
+            Name = "Кролик баран",
+            Species = Species.Rabbit
         },
         new Breed {
-            Id = 10, 
-            Name = "Красноухая черепаха",    
-            Species = Species.Turtle 
+            Id = 10,
+            Name = "Красноухая черепаха",
+            Species = Species.Turtle
         },
         new Breed {
             Id = 11,
             Name = "Среднеазиатская черепаха",
-            Species = Species.Turtle 
+            Species = Species.Turtle
         }
     ];
 
@@ -110,60 +110,60 @@ public class VetClinicTestFixture
     /// </summary>
     private static List<Specialization> GetSpecializations() =>
     [
-        new Specialization { 
+        new Specialization {
             Id = 0,
             Name = "Терапевт",
             Species = [Species.Cat, Species.Dog]
         },
-        new Specialization { 
+        new Specialization {
             Id = 1,
-            Name = "Хирург", 
+            Name = "Хирург",
             Species = [Species.Dog]
         },
-        new Specialization { 
+        new Specialization {
             Id = 2,
             Name = "Орнитолог",
             Species = [Species.Bird]
         },
-        new Specialization { 
+        new Specialization {
             Id = 3,
-            Name = "Универсал", 
-            Species = Enum.GetValues<Species>().ToList() 
+            Name = "Универсал",
+            Species = [..Enum.GetValues<Species>()]
         },
         new Specialization {
             Id = 4,
-            Name = "Фелинолог", 
-            Species = [Species.Cat] 
+            Name = "Фелинолог",
+            Species = [Species.Cat]
         },
-        new Specialization { 
+        new Specialization {
             Id = 5,
             Name = "Герпетолог",
-            Species = [Species.Turtle] 
+            Species = [Species.Turtle]
         },
-        new Specialization { 
+        new Specialization {
             Id = 6,
-            Name = "Ратолог",   
-            Species = [Species.Hamster, Species.Mouse, Species.Rabbit] 
+            Name = "Ратолог",
+            Species = [Species.Hamster, Species.Mouse, Species.Rabbit]
         },
-        new Specialization { 
+        new Specialization {
             Id = 7,
             Name = "Офтальмолог",
-            Species = [Species.Cat, Species.Dog] 
+            Species = [Species.Cat, Species.Dog]
         },
-        new Specialization { 
+        new Specialization {
             Id = 8,
-            Name = "Стоматолог", 
-            Species = [Species.Cat, Species.Dog] 
+            Name = "Стоматолог",
+            Species = [Species.Cat, Species.Dog]
         },
-        new Specialization { 
+        new Specialization {
             Id = 9,
             Name = "Дерматолог",
             Species = [Species.Cat, Species.Dog]
         },
-        new Specialization { 
+        new Specialization {
             Id = 10,
             Name = "Кардиолог",
-            Species = [Species.Cat, Species.Dog] 
+            Species = [Species.Cat, Species.Dog]
         },
         new Specialization {
             Id = 11,
@@ -177,82 +177,82 @@ public class VetClinicTestFixture
     /// </summary>
     private static List<Veterinarian> GetVeterinarians(List<Specialization> spec) =>
     [
-        new Veterinarian { 
-            Id = 0, 
+        new Veterinarian {
+            Id = 0,
             PassportNumber = "1001 000001",
-            FullName = "Иванов Иван Иванович",        
+            FullName = "Иванов Иван Иванович",
             Specialization = spec[0],
-            BirthYear = 1980, 
-            WorkExperience = 15 
+            BirthYear = 1980,
+            WorkExperience = 15
         },
-        new Veterinarian { 
-            Id = 1, 
+        new Veterinarian {
+            Id = 1,
             PassportNumber = "1002 000002",
-            FullName = "Петров Пётр Петрович",       
+            FullName = "Петров Пётр Петрович",
             Specialization = spec[1],
             BirthYear = 1975,
             WorkExperience = 20
         },
-        new Veterinarian { 
-            Id = 2, 
+        new Veterinarian {
+            Id = 2,
             PassportNumber = "1003 000003",
-            FullName = "Сидоров Сидор Сидорович",           
+            FullName = "Сидоров Сидор Сидорович",
             Specialization = spec[2],
             BirthYear = 1985,
-            WorkExperience = 10 
-        },
-        new Veterinarian { 
-            Id = 3, 
-            PassportNumber = "1004 000004",
-            FullName = "Универсалов Универсал Универсалович", 
-            Specialization = spec[3], 
-            BirthYear = 1990,
-            WorkExperience = 8  
+            WorkExperience = 10
         },
         new Veterinarian {
-            Id = 4, 
+            Id = 3,
+            PassportNumber = "1004 000004",
+            FullName = "Универсалов Универсал Универсалович",
+            Specialization = spec[3],
+            BirthYear = 1990,
+            WorkExperience = 8
+        },
+        new Veterinarian {
+            Id = 4,
             PassportNumber = "1005 000005",
-            FullName = "Кузнецов Кузьма Кузьмич",             
+            FullName = "Кузнецов Кузьма Кузьмич",
             Specialization = spec[0],
             BirthYear = 1988,
-            WorkExperience = 12 
-        },
-        new Veterinarian { 
-            Id = 5,
-            PassportNumber = "1006 000006",
-            FullName = "Соколов Степан Степанович",           
-            Specialization = spec[1], 
-            BirthYear = 1982,
-            WorkExperience = 14 
+            WorkExperience = 12
         },
         new Veterinarian {
-            Id = 6, 
+            Id = 5,
+            PassportNumber = "1006 000006",
+            FullName = "Соколов Степан Степанович",
+            Specialization = spec[1],
+            BirthYear = 1982,
+            WorkExperience = 14
+        },
+        new Veterinarian {
+            Id = 6,
             PassportNumber = "1007 000007",
-            FullName = "Попов Павел Павлович",                
+            FullName = "Попов Павел Павлович",
             Specialization = spec[2],
             BirthYear = 1978,
-            WorkExperience = 18 
+            WorkExperience = 18
         },
         new Veterinarian {
             Id = 7,
             PassportNumber = "1008 000008",
-            FullName = "Лебедев Лев Львович",                 
+            FullName = "Лебедев Лев Львович",
             Specialization = spec[4],
             BirthYear = 1986,
-            WorkExperience = 9  
+            WorkExperience = 9
         },
-        new Veterinarian { 
+        new Veterinarian {
             Id = 8,
             PassportNumber = "1009 000009",
-            FullName = "Козлов Кирилл Кириллович",            
+            FullName = "Козлов Кирилл Кириллович",
             Specialization = spec[3],
             BirthYear = 1992,
-            WorkExperience = 5  
+            WorkExperience = 5
         },
-        new Veterinarian { 
+        new Veterinarian {
             Id = 9,
             PassportNumber = "1010 000010",
-            FullName = "Новиков Никита Никитич",              
+            FullName = "Новиков Никита Никитич",
             Specialization = spec[5],
             BirthYear = 1984,
             WorkExperience = 11
@@ -267,11 +267,11 @@ public class VetClinicTestFixture
         new Owner {
             Id = 0,
             FullName = "Иванов Иван Иванович",
-            PhoneNumber = "+7-900-000-00-01" 
+            PhoneNumber = "+7-900-000-00-01"
         },
         new Owner {
             Id = 1,
-            FullName = "Петрова Мария Сергеевна", 
+            FullName = "Петрова Мария Сергеевна",
             PhoneNumber = "+7-900-000-00-02"
         },
         new Owner {
@@ -281,38 +281,38 @@ public class VetClinicTestFixture
         },
         new Owner {
             Id = 3,
-            FullName = "Смирнова Анна Дмитриевна", 
-            PhoneNumber = "+7-900-000-00-04" 
+            FullName = "Смирнова Анна Дмитриевна",
+            PhoneNumber = "+7-900-000-00-04"
         },
         new Owner {
             Id = 4,
-            FullName = "Кузнецова Ольга Андреевна", 
+            FullName = "Кузнецова Ольга Андреевна",
             PhoneNumber = "+7-900-000-00-05"
         },
         new Owner {
-            Id = 5, 
+            Id = 5,
             FullName = "Алексеев Андрей Алексеевич",
             PhoneNumber = "+7-900-000-00-06"
         },
-        new Owner { 
+        new Owner {
             Id = 6,
-            FullName = "Михайлова Мария Ивановна", 
+            FullName = "Михайлова Мария Ивановна",
             PhoneNumber = "+7-900-000-00-07"
         },
         new Owner {
             Id = 7,
-            FullName = "Фёдоров Фёдор Фёдорович",  
-            PhoneNumber = "+7-900-000-00-08" 
+            FullName = "Фёдоров Фёдор Фёдорович",
+            PhoneNumber = "+7-900-000-00-08"
         },
         new Owner {
-            Id = 8, 
+            Id = 8,
             FullName = "Николаев Николай Николаевич",
             PhoneNumber = "+7-900-000-00-09"
         },
-        new Owner { 
+        new Owner {
             Id = 9,
-            FullName = "Захаров Захар Захарович",   
-            PhoneNumber = "+7-900-000-00-10" 
+            FullName = "Захаров Захар Захарович",
+            PhoneNumber = "+7-900-000-00-10"
         }
     ];
 
@@ -323,73 +323,73 @@ public class VetClinicTestFixture
     [
         new Pet {
             Id = 0,
-            Name = "Рекс", 
-            Species = Species.Dog, 
-            Breed = breeds[0], 
-            Owner = owners[0] 
-        },
-        new Pet { 
-            Id = 1,
-            Name = "Барсик",
-            Species = Species.Cat,   
-            Breed = breeds[2],
-            Owner = owners[0] 
-        },
-        new Pet { 
-            Id = 2,
-            Name = "Белла", 
-            Species = Species.Dog,  
-            Breed = breeds[1], 
-            Owner = owners[2] 
+            Name = "Рекс",
+            Species = Species.Dog,
+            Breed = breeds[0],
+            Owner = owners[0]
         },
         new Pet {
-            Id = 3, 
+            Id = 1,
+            Name = "Барсик",
+            Species = Species.Cat,
+            Breed = breeds[2],
+            Owner = owners[0]
+        },
+        new Pet {
+            Id = 2,
+            Name = "Белла",
+            Species = Species.Dog,
+            Breed = breeds[1],
+            Owner = owners[2]
+        },
+        new Pet {
+            Id = 3,
             Name = "Мурка",
-            Species = Species.Cat, 
-            Breed = breeds[3], 
-            Owner = owners[2] 
+            Species = Species.Cat,
+            Breed = breeds[3],
+            Owner = owners[2]
         },
         new Pet {
             Id = 4,
             Name = "Кеша",
-            Species = Species.Bird, 
-            Breed = breeds[4], 
-            Owner = owners[1] 
+            Species = Species.Bird,
+            Breed = breeds[4],
+            Owner = owners[1]
         },
-        new Pet { 
+        new Pet {
             Id = 5,
-            Name = "Тиша", 
-            Species = Species.Cat, 
-            Breed = breeds[2], 
-            Owner = owners[2] 
+            Name = "Тиша",
+            Species = Species.Cat,
+            Breed = breeds[2],
+            Owner = owners[2]
         },
-        new Pet { 
+        new Pet {
             Id = 6,
-            Name = "Шарик", 
+            Name = "Шарик",
             Species = Species.Dog,
-            Breed = breeds[0], 
+            Breed = breeds[0],
             Owner = owners[4]
         },
         new Pet {
             Id = 7,
-            Name = "Пушок", 
+            Name = "Пушок",
             Species = Species.Cat,
             Breed = breeds[3],
             Owner = owners[4]
         },
-        new Pet { 
+        new Pet {
             Id = 8,
             Name = "Гоша",
             Species = Species.Bird,
-            Breed = breeds[5],  
-            Owner = owners[5] 
+            Breed = breeds[5],
+            Owner = owners[5]
         },
         new Pet {
-            Id = 9, 
+            Id = 9,
             Name = "Муся",
             Species = Species.Cat,
             Breed = breeds[2],
-            Owner = owners[6] 
+            Owner = owners[6]
         },
         new Pet {
             Id = 10,
@@ -398,11 +398,11 @@ public class VetClinicTestFixture
             Breed = breeds[6],
             Owner = owners[3]
         },
-        new Pet { 
+        new Pet {
             Id = 11,
             Name = "Снежок",
             Species = Species.Rabbit,
-            Breed = breeds[9],  
+            Breed = breeds[9],
             Owner = owners[7]
         }
     ];
@@ -412,123 +412,122 @@ public class VetClinicTestFixture
     /// </summary>
     private static List<Appointment> GetAppointments(List<Pet> pets, List<Veterinarian> vets)
     {
-        var now = DateTime.Now;
         var thisMonth = ReferenceDate;
         var lastMonth = thisMonth.AddMonths(-1);
         var nextMonth = thisMonth.AddMonths(1);
 
         return
         [
-            
-            new Appointment { 
-                Id = 0, 
-                Pet = pets[0], 
+
+            new Appointment {
+                Id = 0,
+                Pet = pets[0],
                 Veterinarian = vets[0],
                 AppointmentDateTime = thisMonth.AddHours(1),
                 RoomNumber = 101,
-                IsRepeat = false 
+                IsRepeat = false
             },
-            new Appointment { 
-                Id = 1, 
-                Pet = pets[0], 
+            new Appointment {
+                Id = 1,
+                Pet = pets[0],
                 Veterinarian = vets[0],
-                AppointmentDateTime = thisMonth.AddHours(2), 
+                AppointmentDateTime = thisMonth.AddHours(2),
                 RoomNumber = 102,
-                IsRepeat = true 
+                IsRepeat = true
             },
-            new Appointment { 
-                Id = 2,  
-                Pet = pets[0], 
-                Veterinarian = vets[0], 
-                AppointmentDateTime = thisMonth.AddHours(3), 
+            new Appointment {
+                Id = 2,
+                Pet = pets[0],
+                Veterinarian = vets[0],
+                AppointmentDateTime = thisMonth.AddHours(3),
                 RoomNumber = 101,
-                IsRepeat = true 
+                IsRepeat = true
             },
-            new Appointment { 
+            new Appointment {
                 Id = 3,
-                Pet = pets[1], 
-                Veterinarian = vets[0], 
+                Pet = pets[1],
+                Veterinarian = vets[0],
                 AppointmentDateTime = thisMonth.AddHours(4),
                 RoomNumber = 101,
-                IsRepeat = false 
+                IsRepeat = false
             },
 
             new Appointment {
                 Id = 4,
-                Pet = pets[2], 
-                Veterinarian = vets[1], 
-                AppointmentDateTime = lastMonth,         
+                Pet = pets[2],
+                Veterinarian = vets[1],
+                AppointmentDateTime = lastMonth,
                 RoomNumber = 101,
-                IsRepeat = true  
+                IsRepeat = true
             },
             new Appointment {
                 Id = 12,
-                Pet = pets[2], 
+                Pet = pets[2],
                 Veterinarian = vets[1],
-                AppointmentDateTime = thisMonth.AddHours(11), 
-                RoomNumber = 101, 
+                AppointmentDateTime = thisMonth.AddHours(11),
+                RoomNumber = 101,
                 IsRepeat = false
             },
             new Appointment {
                 Id = 13,
-                Pet = pets[0], 
-                Veterinarian = vets[1], 
-                AppointmentDateTime = lastMonth,         
+                Pet = pets[0],
+                Veterinarian = vets[1],
+                AppointmentDateTime = lastMonth,
                 RoomNumber = 102,
-                IsRepeat = false 
+                IsRepeat = false
             },
 
-            new Appointment { 
-                Id = 9, 
+            new Appointment {
+                Id = 9,
                 Pet = pets[4],
                 Veterinarian = vets[2],
                 AppointmentDateTime = thisMonth.AddHours(8),
                 RoomNumber = 102,
-                IsRepeat = true 
+                IsRepeat = true
             },
 
             new Appointment {
-                Id = 7,  Pet = pets[7], 
-                Veterinarian = vets[3], 
-                AppointmentDateTime = nextMonth,  
-                RoomNumber = 101,
-                IsRepeat = false 
-            },
-            new Appointment { 
-                Id = 14, Pet = pets[3], 
+                Id = 7,  Pet = pets[7],
                 Veterinarian = vets[3],
-                AppointmentDateTime = thisMonth.AddHours(12), 
+                AppointmentDateTime = nextMonth,
+                RoomNumber = 101,
+                IsRepeat = false
+            },
+            new Appointment {
+                Id = 14, Pet = pets[3],
+                Veterinarian = vets[3],
+                AppointmentDateTime = thisMonth.AddHours(12),
                 RoomNumber = 102,
-                IsRepeat = true 
+                IsRepeat = true
             },
 
-            new Appointment { 
-                Id = 5,  Pet = pets[3], 
+            new Appointment {
+                Id = 5,  Pet = pets[3],
                 Veterinarian = vets[4],
-                AppointmentDateTime = thisMonth.AddHours(5), 
+                AppointmentDateTime = thisMonth.AddHours(5),
                 RoomNumber = 102,
                 IsRepeat = false
             },
             new Appointment {
-                Id = 11, Pet = pets[9], 
-                Veterinarian = vets[4], 
+                Id = 11, Pet = pets[9],
+                Veterinarian = vets[4],
                 AppointmentDateTime = thisMonth.AddHours(10),
                 RoomNumber = 101,
-                IsRepeat = false 
+                IsRepeat = false
             },
 
-            new Appointment { 
+            new Appointment {
                 Id = 8,
                 Pet = pets[6],
                 Veterinarian = vets[5],
                 AppointmentDateTime = thisMonth.AddHours(7),
                 RoomNumber = 101,
-                IsRepeat = true 
+                IsRepeat = true
             },
 
-            new Appointment { 
+            new Appointment {
                 Id = 10,
-                Pet = pets[8], 
+                Pet = pets[8],
                 Veterinarian = vets[6],
                 AppointmentDateTime = thisMonth.AddHours(9),
                 RoomNumber = 101,
@@ -537,11 +536,11 @@ public class VetClinicTestFixture
 
             new Appointment {
                 Id = 6,
-                Pet = pets[5], 
-                Veterinarian = vets[7], 
+                Pet = pets[5],
+                Veterinarian = vets[7],
                 AppointmentDateTime = thisMonth.AddHours(6),
-                RoomNumber = 101, 
-                IsRepeat = true 
+                RoomNumber = 101,
+                IsRepeat = true
             }
         ];
     }
