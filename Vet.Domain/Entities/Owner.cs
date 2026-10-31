@@ -19,7 +19,7 @@ public sealed class Owner
     /// Адрес
     /// </summary>
     public string? Address { get; set; }
-        
+
     /// <summary>
     /// Номер телефона
     /// </summary>
