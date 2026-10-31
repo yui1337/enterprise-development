@@ -3,7 +3,8 @@
 /// <summary>
 /// Базовый интерфейс репозитория для выполнения стандартных CRUD-операций
 /// </summary>
-/// <typeparam name="T">Тип доменной сущности</typeparam>
+/// <typeparam name="TEntity">Тип сущности</typeparam>
+/// <typeparam name="TKey">Тип идентификатора</typeparam>
 public interface IRepository<TEntity, TKey>
 {
     /// <summary>
@@ -16,13 +17,13 @@ public interface IRepository<TEntity, TKey>
     /// Асинхронный поиск сущности по ID
     /// </summary>
     /// <param name="entityId">Идентификатор сущности</param>
-    /// <returns>Найденная сущность, или null,если не найдена</returns>
+    /// <returns>Найденная сущность, или null, если не найдена</returns>
     public Task<TEntity?> GetByIdAsync(TKey entityId);
 
     /// <summary>
     /// Асинхронное добавление новой сущности
     /// </summary>
-    /// <param name="entity"></param>
+    /// <param name="entity">Экземпляр сущности для добавления</param>
     /// <returns>Добавленная сущность</returns>
     public Task<TEntity> AddAsync(TEntity entity);
 

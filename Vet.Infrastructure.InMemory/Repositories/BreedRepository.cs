@@ -2,26 +2,26 @@
 using Vet.Domain.Entities;
 using Vet.Domain.Interfaces;
 
-namespace Vet.Infrastructure.InMemory;
+namespace Vet.Infrastructure.InMemory.Repositories;
 
 /// <summary>
 /// Класс репозитория для хранения данных в памяти
 /// </summary>
 /// <param name="data">Данные из датасида</param>
-public class PetRepository(VetClinicTestFixture data) : IRepository<Pet, int>
+public class BreedRepository(VetClinicTestFixture data) : IRepository<Breed, int>
 {
     private readonly VetClinicTestFixture _data = data;
     private readonly Lock _lock = new();
 
     /// <inheritdoc />
-    public Task<Pet> AddAsync(Pet entity)
+    public Task<Breed> AddAsync(Breed entity)
     {
         lock (_lock)
         {
-            var maxId = _data.Pets.Count > 0 ? _data.Pets.Max(p => p.Id) : 0;
+            var maxId = _data.Breeds.Count > 0 ? _data.Breeds.Max(p => p.Id) : 0;
             entity.Id = maxId + 1;
 
-            _data.Pets.Add(entity);
+            _data.Breeds.Add(entity);
             return Task.FromResult(entity);
         }
     }
@@ -31,48 +31,49 @@ public class PetRepository(VetClinicTestFixture data) : IRepository<Pet, int>
     {
         lock (_lock)
         {
-            var pet = _data.Pets.FirstOrDefault(p => p.Id == entityId);
-            if (pet is null)
+            var breed = _data.Breeds.FirstOrDefault(p => p.Id == entityId);
+            if (breed is null)
             {
                 return Task.FromResult(false);
             }
 
-            _data.Pets.Remove(pet);
+            _data.Breeds.Remove(breed);
             return Task.FromResult(true);
         }
     }
 
     /// <inheritdoc />
-    public Task<IReadOnlyList<Pet>> GetAllAsync()
+    public Task<IReadOnlyList<Breed>> GetAllAsync()
     {
         lock (_lock)
         {
-            IReadOnlyList<Pet> pets = _data.Pets.ToList().AsReadOnly();
-            return Task.FromResult(pets);
-        }
-    }
-
-    public Task<Pet?> GetByIdAsync(int entityId)
-    {
-        lock (_lock)
-        {
-            var pet = _data.Pets.FirstOrDefault(p => p.Id == entityId);
-            return Task.FromResult(pet);
+            IReadOnlyList<Breed> breeds = _data.Breeds.ToList().AsReadOnly();
+            return Task.FromResult(breeds);
         }
     }
 
     /// <inheritdoc />
-    public Task<bool> UpdateAsync(Pet entity)
+    public Task<Breed?> GetByIdAsync(int entityId)
     {
         lock (_lock)
         {
-            var index = _data.Pets.FindIndex(p => p.Id == entity.Id);
+            var breed = _data.Breeds.FirstOrDefault(p => p.Id == entityId);
+            return Task.FromResult(breed);
+        }
+    }
+
+    /// <inheritdoc />
+    public Task<bool> UpdateAsync(Breed entity)
+    {
+        lock (_lock)
+        {
+            var index = _data.Breeds.FindIndex(p => p.Id == entity.Id);
             if (index == -1)
             {
                 return Task.FromResult(false);
             }
 
-            _data.Pets[index] = entity;
+            _data.Breeds[index] = entity;
             return Task.FromResult(true);
         }
     }
