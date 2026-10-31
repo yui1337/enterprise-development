@@ -1,3 +1,4 @@
+using Vet.Domain.DataSeed;
 using Vet.Domain.Enums;
 
 namespace Vet.Tests;

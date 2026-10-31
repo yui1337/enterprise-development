@@ -19,7 +19,7 @@ public interface IRepository<TEntity, TKey>
     /// <summary>
     /// Добавить новую сущность
     /// </summary>
-    public Task<TEntity> AddAsync(TKey entityId);
+    public Task<TEntity> AddAsync(TEntity entity);
 
     /// <summary>
     /// Обновить существующую сущность
