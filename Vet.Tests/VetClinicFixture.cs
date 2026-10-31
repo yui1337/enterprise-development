@@ -1,7 +1,7 @@
 using Vet.Domain.Entities;
 using Vet.Domain.Enums;
 
-namespace Vet.Tests;
+namespace Vet.Domain.DataSeed;
 
 /// <summary>
 /// Тестовый набор данных для проверки запросов ветеринарной клиники

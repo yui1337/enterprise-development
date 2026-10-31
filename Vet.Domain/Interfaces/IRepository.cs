@@ -7,27 +7,36 @@
 public interface IRepository<TEntity, TKey>
 {
     /// <summary>
-    /// Получить все сущности
+    /// Асинхронное получение всех сущностей
     /// </summary>
+    /// <returns>Список всех сущностей</returns>
     public Task<IReadOnlyList<TEntity>> GetAllAsync();
 
     /// <summary>
-    /// Найти сущность по ID
+    /// Асинхронный поиск сущности по ID
     /// </summary>
+    /// <param name="entityId">Идентификатор сущности</param>
+    /// <returns>Найденная сущность, или null,если не найдена</returns>
     public Task<TEntity?> GetByIdAsync(TKey entityId);
 
     /// <summary>
-    /// Добавить новую сущность
+    /// Асинхронное добавление новой сущности
     /// </summary>
+    /// <param name="entity"></param>
+    /// <returns>Добавленная сущность</returns>
     public Task<TEntity> AddAsync(TEntity entity);
 
     /// <summary>
-    /// Обновить существующую сущность
+    /// Асинхронное обновление существующей сущности
     /// </summary>
+    /// <param name="entity">Сущность, подлежащая обновлению</param>
+    /// <returns>True, если сущность обновлена; False, если не найдена</returns>
     public Task<bool> UpdateAsync(TEntity entity);
 
     /// <summary>
-    /// Удалить сущность по ID
+    /// Асинхронное удаление сущности по ID
     /// </summary>
+    /// <param name="entityId">Идентификатор сущности</param>
+    /// <returns>True, если сущность удалена; False, если не найдена</returns>
     public Task<bool> DeleteAsync(TKey entityId);
 }
